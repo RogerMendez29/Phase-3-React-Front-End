@@ -27,18 +27,8 @@ body {
   background-repeat: no-repeat;
 }
 
-.delete-btn:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-}
-
 a:link {
   font-size: 1.2em;
 
   cursor: pointer;
-}
-
-.map {
-  height: 500px;
-  width: 100%;
 }
