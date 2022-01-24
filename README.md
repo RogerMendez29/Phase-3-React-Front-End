@@ -6,6 +6,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a very simple website for a local cafe to get there products online.
 
-## Backend Rep
+## Backend Repo
 
 This is the front end for this project to be able to access the front end use this link: https://github.com/RogerMendez29/phase-3-sinatra-react-project
