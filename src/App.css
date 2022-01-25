@@ -1,5 +1,6 @@
 body {
-  background-color: black;
+  background-image: url(./images/toast.jpg);
+  background-size: cover;
 }
 
 .card {
@@ -7,28 +8,8 @@ body {
   opacity: 90%;
 }
 
-.navbar {
-  background-color: black;
-  opacity: 55%;
-  /* height: 100px; */
-  /* display: flex; */
-  justify-content: center;
-  /* font-weight: 100px; */
-  position: relative;
-}
-
-.rnd-btn {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  left: 10px;
-  background-image: url(./images/cafe_logo.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-a:link {
-  font-size: 1.2em;
-
-  cursor: pointer;
+.h1,
+h1 {
+  color: white;
+  text-align: center;
 }

@@ -1,0 +1,13 @@
+.logo-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.navbar {
+  /* top: 0;
+  position: sticky; */
+  background-color: transparent;
+  color: white;
+
+  position: relative;
+}

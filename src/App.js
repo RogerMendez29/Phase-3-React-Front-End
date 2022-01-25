@@ -5,9 +5,14 @@ import Favorite from "./components/Favorites";
 import Home from "./components/Home";
 import Menu from "./components/Menu";
 import Contact from "./components/Contact_us";
+import Appetizer from "./components/Appetizer";
+import Entrees from "./components/Entrees";
+import Desserts from "./components/Desserts";
+
+// import Footer from "./components/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.min.js";
+// import "bootstrap/dist/js/bootstrap.min.js"
 
 import "./App.css";
 
@@ -41,6 +46,23 @@ function App() {
           <Navbar />
           <Menu appetizers={appetizers} entrees={entrees} desserts={desserts} />
         </Route>
+
+        <Route path="/appetizer">
+          <Navbar />
+          <Menu />
+          <Appetizer appetizers={appetizers} />
+        </Route>
+        <Route path="/entrees">
+          <Navbar />
+          <Menu />
+          <Entrees entrees={entrees} />
+        </Route>
+        <Route path="/desserts">
+          <Navbar />
+          <Menu />
+          <Desserts desserts={desserts} />
+        </Route>
+
         <Route path="/">
           <Navbar />
           <Home />

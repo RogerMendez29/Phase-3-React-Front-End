@@ -31,8 +31,8 @@ function Contact() {
         help you.
       </p>
 
-      <div className="row align-items-center">
-        <div className="col-md-9 mb-md-0 mb-5">
+      <div className=" container justify-content-center row align-items-center">
+        <div className=" col-md-9 mb-md-0 mb-5">
           <form
             onSubmit={submitReview}
             id="contact-form"
@@ -112,11 +112,10 @@ function Contact() {
       </div>
       <div>
         <iframe
-          className="map"
+          className="map mx-auto"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.2579382388003!2d-82.45934588450754!3d28.441639899444787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2a7408fe81399%3A0xb85abc1fa27dc8e!2sCafe%20Masaryktown!5e0!3m2!1sen!2sus!4v1642629235465!5m2!1sen!2sus"
           width="600"
           height="450"
-          //   style="border:0;"
           allowFullScreen=""
           loading="lazy"
         ></iframe>

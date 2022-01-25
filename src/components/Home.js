@@ -11,7 +11,6 @@ function Home() {
         setSpecial(data);
       });
   }, []);
-  // console.log(special);
 
   function renderSpecials() {
     let card = special.map((plate) => {
@@ -22,7 +21,7 @@ function Home() {
             className="card-img-top"
             alt={plate.name}
           />
-          <div className="card-body">
+          <div className="card-body card">
             <h5 className="card-title">{plate.name}</h5>
             <p className="card-text">{plate.description}</p>
             <p className="card-text">${plate.price}</p>
