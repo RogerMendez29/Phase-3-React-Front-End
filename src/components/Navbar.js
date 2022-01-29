@@ -6,11 +6,10 @@ import "./styles/nav.css";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light ">
-      <div className="container-fluid">
+      <div className="  nav-content container-fluid">
         <NavLink className="navbar-brand logo" to="/home">
-          <a href="">
-            <img className="logo-image" src={logo} />
-          </a>
+          <img className="logo-image" src={logo} />
+          <h2 className="name">Cafe Masaryktown</h2>
         </NavLink>
 
         <NavLink
@@ -18,8 +17,8 @@ function Navbar() {
           activeStyle={{
             color: "red",
           }}
+          className="nav-link"
           to="/home"
-          className="nav-link px-2  "
         >
           Home
         </NavLink>

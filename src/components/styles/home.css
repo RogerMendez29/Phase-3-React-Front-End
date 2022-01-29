@@ -1,4 +1,18 @@
-/* body {
-  background-image: url(../../images/toast.jpg);
-  background-size: cover;
-} */
+.special-container {
+  text-align: left;
+  justify-content: left;
+}
+
+.special_title {
+  text-align: left;
+  color: white;
+}
+
+.slogan {
+  /* text-align: center;te */
+  color: red;
+}
+
+.photo{
+  object-fit: cover
+}

@@ -11,3 +11,11 @@
 
   position: relative;
 }
+.name {
+  color: white;
+}
+
+.nav-link{
+  font-weight: bold;
+  font-size: 20px;
+}

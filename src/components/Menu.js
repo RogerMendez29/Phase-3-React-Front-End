@@ -2,39 +2,29 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles/menu.css";
 
-function Menu({ appetizers, entrees, desserts }) {
+function Menu({ categories }) {
+  function renderCategories(array) {
+    const categorylink = array?.map((category) => {
+      return (
+        <NavLink
+          key={category.id}
+          style={{ color: "white" }}
+          activeStyle={{
+            color: "red",
+          }}
+          to={category.title}
+          className="nav-link px-2 "
+        >
+          {category.title}s
+        </NavLink>
+      );
+    });
+    return categorylink;
+  }
+
   return (
-    <div className="container">
-      <NavLink
-        style={{ color: "white" }}
-        activeStyle={{
-          color: "red",
-        }}
-        to="/appetizer"
-        className="nav-link px-2  "
-      >
-        Appetizers
-      </NavLink>
-      <NavLink
-        style={{ color: "white" }}
-        activeStyle={{
-          color: "red",
-        }}
-        to="/entrees"
-        className="nav-link px-2  "
-      >
-        Entrees
-      </NavLink>
-      <NavLink
-        style={{ color: "white" }}
-        activeStyle={{
-          color: "red",
-        }}
-        to="/desserts"
-        className="nav-link px-2  "
-      >
-        Desserts
-      </NavLink>
+    <div className="menu-container">
+      <div className=" menu-links">{renderCategories(categories)}</div>
     </div>
   );
 }

@@ -1,4 +1,13 @@
-.heart-btn:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
+
+
+.menu-links {
+  font-size: 25px;
+  font-weight: bold;
+
+  display: flex;
+}
+
+.menu-container {
+  justify-content: center;
+  display: flex;
 }

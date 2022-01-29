@@ -1,4 +1,25 @@
 .delete-btn:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: black;
   border-radius: 50%;
 }
+.delete-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
+.notes-btn {
+  position: absolute;
+  bottom: 0;
+  left: 49;
+  margin-bottom: 10px;
+}
+
+.favorites-title {
+  text-align: center;
+  color: rgb(250, 250, 250);
+}
+
+

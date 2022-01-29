@@ -1,42 +1,36 @@
 import { React, useState, useEffect } from "react";
 import "./styles/home.css";
 
-function Home() {
-  const [special, setSpecial] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:9292/specials`)
-      .then((res) => res.json())
-      .then((data) => {
-        setSpecial(data);
-      });
-  }, []);
-
-  function renderSpecials() {
-    let card = special.map((plate) => {
+function Home({ special }) {
+  function renderSpecial(special) {
+    if (special) {
       return (
-        <div key={plate.name} className="card">
-          <img
-            src={plate.image_url}
-            className="card-img-top"
-            alt={plate.name}
-          />
-          <div className="card-body card">
-            <h5 className="card-title">{plate.name}</h5>
-            <p className="card-text">{plate.description}</p>
-            <p className="card-text">${plate.price}</p>
+        <div>
+          <h1 className="special_title">Special Of The Day</h1>
+
+          <div key={special.name} className="card image-container">
+            <img src={special.image_url} className="photo" alt={special.name} />
+            <div className="card-body">
+              <h5 className="title">{special.name}</h5>
+              <p className="item-text">{special.description}</p>
+              <p className="item-price">$6.99</p>
+            </div>
           </div>
         </div>
       );
-    });
-    return card;
+    } else {
+      return null;
+    }
   }
 
   return (
-    <div className="container main-container">
-      <div className="container picture-container"></div>
-      <h1>Daily Specials</h1>
-      <div className="d-flex flex-wrap">{renderSpecials()}</div>
+    <div className="home  container main-container">
+      <div className="container special-container"></div>
+      <div className="d-flex flex-wrap">{renderSpecial(special)}</div>
+      {/* <h3 className="slogan">
+        We Bring Family Tradition And Quality To Every Table We Serve. We
+        Specialize in Both Cuban And Spanish Style Cuisine.
+      </h3> */}
     </div>
   );
 }
