@@ -27,7 +27,7 @@ function Navbar() {
           activeStyle={{
             color: "red",
           }}
-          to="/Menu"
+          to="/menu"
           className="nav-link px-2  "
         >
           Menu

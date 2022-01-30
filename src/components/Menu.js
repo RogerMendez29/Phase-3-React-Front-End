@@ -1,30 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import "./styles/menu.css";
+import Menu_nav from "./menu_nav";
 
-function Menu({ categories }) {
-  function renderCategories(array) {
-    const categorylink = array?.map((category) => {
-      return (
-        <NavLink
-          key={category.id}
-          style={{ color: "white" }}
-          activeStyle={{
-            color: "red",
-          }}
-          to={category.title}
-          className="nav-link px-2 "
-        >
-          {category.title}s
-        </NavLink>
-      );
-    });
-    return categorylink;
-  }
-
+function Menu({ categories, renderCategory, popular }) {
   return (
     <div className="menu-container">
-      <div className=" menu-links">{renderCategories(categories)}</div>
+      <div>
+        <Menu_nav categories={categories} />
+
+        <h1 className="popular-title">Most Popular</h1>
+      </div>
+      <div className="container d-flex flex-wrap menu-items">
+        {renderCategory(popular)}
+      </div>
     </div>
   );
 }

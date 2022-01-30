@@ -1,7 +1,6 @@
 body {
-  font-family: "sans-serif","Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    ;
+  font-family: "sans-serif", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue";
 }
 
 h1,
@@ -28,6 +27,7 @@ p {
 }
 h1 {
   font-weight: bold;
+  color: white;
 }
 
 .page-body {

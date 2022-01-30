@@ -22,4 +22,19 @@
   color: rgb(250, 250, 250);
 }
 
+.add-notes-form{
+  position: absolute;
+  top: 75%;
 
+}
+.notes{
+  position: absolute;
+  top: 65%;
+}
+
+.favorites-card {
+  width: 250px;
+  opacity: 90%;
+  height: 525px;
+  border: 0.25rem solid hsl(360, 71%, 66%);
+}

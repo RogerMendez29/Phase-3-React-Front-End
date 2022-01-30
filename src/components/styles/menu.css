@@ -1,13 +1,18 @@
-
-
 .menu-links {
   font-size: 25px;
   font-weight: bold;
+  justify-content: center;
 
   display: flex;
 }
 
 .menu-container {
+  /* justify-content: center; */
+  /* display: flex; */
+  text-align: center;
+}
+
+.popular-title {
   justify-content: center;
-  display: flex;
+  text-align: center;
 }

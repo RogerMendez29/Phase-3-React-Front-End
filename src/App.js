@@ -12,7 +12,6 @@ import Desserts from "./components/Desserts";
 import Footer from "./components/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "bootstrap.bundle.min.js";
 
 import "./App.css";
 
@@ -22,6 +21,7 @@ function App() {
   const [desserts, setDesserts] = useState([]);
   const [special, setSpecial] = useState({});
   const [categories, setCategory] = useState([]);
+  const [popular, setPopular] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:9292/specials`)
@@ -42,7 +42,66 @@ function App() {
       .then((data) => {
         setCategory(data);
       });
+    fetch("http://localhost:9292/popular")
+      .then((res) => res.json())
+      .then((data) => {
+        setPopular(data);
+      });
   }, []);
+
+  function renderCategory(category) {
+    const card = category.map((plate) => {
+      if (plate.id !== special.id && plate.availability) {
+        return (
+          <div key={plate.id} className="card image-container">
+            <img src={plate.image_url} className="photo" alt={plate.name} />
+            <div className=" card-body">
+              <h5 className="title">{plate.name}</h5>
+              <p className="item-text">{plate.description}</p>
+              <p className="item-price">${plate.price}</p>
+              <button
+                className="btn heart-btn"
+                style={{ position: "absolute", top: "0", right: "0" }}
+                onClick={() => addToFavorites(plate)}
+              >
+                ❤️
+              </button>
+            </div>
+          </div>
+        );
+      } else {
+        return null;
+      }
+    });
+    return card;
+  }
+
+  function retriveFromFavorites(favorites) {
+
+    addToFavorites(favorites)
+    
+  }
+  function addToFavorites(plate,favorites) {
+    console.log(favorites);
+    
+    const itemData = {
+      id: plate.id,
+      name: plate.name,
+      description: plate.description,
+      image_url: plate.image_url,
+      price: plate.price,
+      category_id: plate.category_id,
+    };
+
+    fetch("http://localhost:9292/favorites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(itemData),
+    });
+  }
+
   function renderCategory_info(category) {
     if (category) {
       return (
@@ -67,14 +126,18 @@ function App() {
         <Route path="/favorites">
           <div className="page-body">
             <Navbar />
-            <Favorite />
+            <Favorite retriveFromFavorites={retriveFromFavorites} />
           </div>
           <Footer />
         </Route>
         <Route path="/menu">
           <div className="page-body">
             <Navbar />
-            <Menu categories={categories} />
+            <Menu
+              categories={categories}
+              popular={popular}
+              renderCategory={renderCategory}
+            />
           </div>
           <Footer />
         </Route>
@@ -82,8 +145,9 @@ function App() {
         <Route path="/Appetizer">
           <div className="page-body">
             <Navbar />
-            {/* <Menu /> */}
             <Appetizer
+              categories={categories}
+              renderCategory={renderCategory}
               appetizers={appetizers}
               category={categories[0]}
               pageInfo={renderCategory_info}
@@ -94,10 +158,10 @@ function App() {
         <Route path="/Entree">
           <div className="page-body">
             <Navbar />
-            <Menu />
             <Entrees
+              categories={categories}
+              renderCategory={renderCategory}
               entrees={entrees}
-              special={special}
               category={categories[1]}
               pageInfo={renderCategory_info}
             />
@@ -107,8 +171,9 @@ function App() {
         <Route path="/Dessert">
           <div className="page-body">
             <Navbar />
-            {/* <Menu /> */}
             <Desserts
+              categories={categories}
+              renderCategory={renderCategory}
               desserts={desserts}
               category={categories[2]}
               pageInfo={renderCategory_info}

@@ -4,7 +4,6 @@ import "./styles/favorites.css";
 
 function Favorite() {
   const [favorites, setFavorites] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
   const [updatedNotes, setUpdatedNotes] = useState("");
   const [editableNotes, setEditableNotes] = useState(new Set());
 
@@ -27,7 +26,6 @@ function Favorite() {
 
   function handleFormEdit(event, id) {
     event.preventDefault();
-    setIsEditing(false);
     fetch(`http://localhost:9292/favorites/${id}`, {
       method: "PATCH",
       headers: {
@@ -42,15 +40,16 @@ function Favorite() {
   function renderFavorites() {
     let card = favorites.map((plate) => {
       return (
-        <div key={plate.id} className="card image-container">
+        <div key={plate.id} className="favorites-card card image-container">
           <img src={plate.image_url} className="photo" alt={plate.name} />
           <div className="card-body">
             <h5 className="title">{plate.name}</h5>
             <p className="item-text">{plate.description}</p>
             <p className="item-price">${plate.price}</p>
-            <p className="item-text">Notes:{plate.notes}</p>
+            <p className="item-text notes">Notes:{plate.notes}</p>
             {editableNotes.has(plate.id) && (
               <form
+                className="add-notes-form"
                 onSubmit={(event) => {
                   handleFormEdit(event, plate.id);
                 }}
@@ -72,7 +71,8 @@ function Favorite() {
             >
               ❌
             </button>
-            <button className="notes-btn"
+            <button
+              className="notes-btn btn btn-success"
               onClick={() => {
                 if (editableNotes.has(plate.id)) {
                   editableNotes.delete(plate.id);
@@ -81,10 +81,9 @@ function Favorite() {
                 }
 
                 setEditableNotes(new Set([...editableNotes]));
-                setIsEditing(!isEditing);
               }}
             >
-              Add Notes
+              {editableNotes.has(plate.id) ? "Done" : "Add Notes"}
             </button>
           </div>
         </div>
